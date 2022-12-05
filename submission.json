@@ -1,4 +1,4 @@
 {
     "dockerhub-id": "k6chan/dsc180a-q1-project:latest",
-    "build-script": "python run.py data"
+    "build-script": "python run.py"
 }

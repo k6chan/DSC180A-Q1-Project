@@ -22,14 +22,14 @@ def word2vec(data_fp, seeds_fp):
     :param: data: a directory to a DataFrame with a "sentence" attribute
     :param: seeds: a directory to a dictionary of labels (keys) with a list of seed words (values)
     '''
+    data = pd.read_csv(data_fp)
+    seeds = json.load(seeds_fp)
+    
     #reverse seeds dictionary
     genres = {}
     for genre,seed_words in seeds.items():
         for seed_word in seed_words:
             genres[seed_word] = genre
-            
-    data = pd.read_csv(data_fp)
-    seeds = json.load(seeds_fp)
             
     data_ind = data.reset_index()
     

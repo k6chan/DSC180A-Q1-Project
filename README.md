@@ -24,5 +24,5 @@ Using seedwords.json instead of seedwords_6.json
 
 ## Targets
 
-* `test`: run models with test data
-* `data`: run models with raw data
+* `test`: run models with test data. Output in `test/testoutput`.
+* `data`: run models with raw data. Output in `data/out`.

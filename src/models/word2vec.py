@@ -15,7 +15,7 @@ def tokenize(sentence):
     tokens = [w for w in (''.join([c for c in sentence.lower() if c not in punctuation]).split()) if w not in stopwords]
     return tokens
 
-def word2vec(data_fp, seeds_fp):
+def word2vec_classification(data_fp, seeds_fp):
     '''
     Return a DataFrame of the input with predicted labels using Word2Vec
     

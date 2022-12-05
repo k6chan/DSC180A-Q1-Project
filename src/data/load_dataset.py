@@ -38,20 +38,21 @@ def read_seedwords(fp):
 # In[ ]:
 
 
-def load_data(corpi,seedwords,outpath):
+def load_data(corpi,seedwords,inpath,outpath):
     '''
     Reads the raw pickle and JSON files and saves them in the output directory.
     
-    :param: corpi: a list of corpuses to read
-    :param: seedwords: a list of seedwords to read
+    :param: corpi: a list of corpus file names to read
+    :param: seedwords: a list of seedword file names to read
+    :param: inpath: the input directory
     :param: outpath: the output directory
     '''
     for corpus in corpi:
-        c = read_corpus(corpus)
+        c = read_corpus(inpath + "/" + corpus)
         basename = os.path.basename(corpus).split('.')[0]
         c.to_csv(os.path.join(outpath, basename + ".csv"))
     for seedwords_file in seedwords:
-        s = read_seedwords(seedwords_file)
+        s = read_seedwords(inpath + "/" + seedwords_file)
         #raw JSON is unchanged as of now
         basename = os.path.basename(seedwords_file).split('.')[0]
         with open(os.path.join(outpath, basename + ".json"), 'w') as f:

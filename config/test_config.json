@@ -1,0 +1,6 @@
+{
+    "corpi": ["test_nyt.pkl"],
+    "seedwords": ["test_seedwords_raw.json"],
+    "inpath": "test/testdata",
+    "outpath": "test/testoutput"
+}

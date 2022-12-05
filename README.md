@@ -20,3 +20,8 @@ Using seedwords.json instead of seedwords_6.json
 `df.pkl` --> `20News_coarse.pkl`
 
 `seedwords.json` --> `20News_seedwords.json`
+
+# Targets
+
+* `test`: run models with test data
+* `data`: run models with raw data

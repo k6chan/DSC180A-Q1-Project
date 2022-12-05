@@ -1,5 +1,6 @@
 {
-    "corpi": ["test/testdata/test_nyt.pkl"],
-    "seedwords": ["test/testdata/test_seedwords_raw.json"],
-    "outpath": "test/testoutput"
+    "corpi": ["nyt_coarse.pkl", "20News_coarse.pkl"],
+    "seedwords": ["nyt_seedwords.json", "20News_seedwords.json"],
+    "inpath": "data/raw",
+    "outpath": "data/out"
 }

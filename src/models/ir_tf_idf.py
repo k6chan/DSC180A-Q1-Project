@@ -1,19 +1,23 @@
 import pandas as pd
 import sklearn.feature_extraction as fe
+import json
 
 
-def ir_tfidf(data, seeds):
+def ir_tfidf(data_fp, seeds_fp):
     '''
     Return a DataFrame of the input with predicted labels using IR-TF-IDF
     
-    :param: data: a DataFrame with a "sentence" attribute
-    :param: seeds: a dictionary of labels (keys) with a list of seed words (values)
+    :param: data: a directory to a DataFrame with a "sentence" attribute
+    :param: seeds: a directory to a dictionary of labels (keys) with a list of seed words (values)
     '''
     #reverse seeds dictionary
     genres = {}
     for genre,seed_words in seeds.items():
         for seed_word in seed_words:
             genres[seed_word] = genre
+            
+    data = pd.read_csv(data_fp)
+    seeds = json.load(seeds_fp)
             
     data_ind = data.reset_index()
             

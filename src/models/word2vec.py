@@ -3,6 +3,7 @@ import sklearn.feature_extraction as fe
 from gensim.models import Word2Vec
 import string
 import numpy as np
+import json
 
 
 def tokenize(sentence):
@@ -14,18 +15,21 @@ def tokenize(sentence):
     tokens = [w for w in (''.join([c for c in sentence.lower() if c not in punctuation]).split()) if w not in stopwords]
     return tokens
 
-def word2vec(data, seeds):
+def word2vec(data_fp, seeds_fp):
     '''
     Return a DataFrame of the input with predicted labels using Word2Vec
     
-    :param: data: a DataFrame with a "sentence" attribute
-    :param: seeds: a dictionary of labels (keys) with a list of seed words (values)
+    :param: data: a directory to a DataFrame with a "sentence" attribute
+    :param: seeds: a directory to a dictionary of labels (keys) with a list of seed words (values)
     '''
     #reverse seeds dictionary
     genres = {}
     for genre,seed_words in seeds.items():
         for seed_word in seed_words:
             genres[seed_word] = genre
+            
+    data = pd.read_csv(data_fp)
+    seeds = json.load(seeds_fp)
             
     data_ind = data.reset_index()
     

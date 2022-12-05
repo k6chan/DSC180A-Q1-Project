@@ -33,14 +33,14 @@ def main(targets):
         fp_seeds = params["outpath"] + "/" + params["seedwords"][i]
         #TFIDF
         tfidf_res = ir_tfidf(fp_data, fp_seeds)
-        micro = score_F1(tfidf_res["label"], tfidf_res["prediction"], "micro")
-        macro = score_F1(tfidf_res["label"], tfidf_res["prediction"], "macro")
+        micro = score_F1(tfidf_res["label"], tfidf_res["prediction"], params["outpath"], "micro")
+        macro = score_F1(tfidf_res["label"], tfidf_res["prediction"], params["outpath"], "macro")
         print("IR-TF-IDF Micro-F1 score for", params["corpi"][i], micro)
         print("IR-TF-IDF Macro-F1 score for", params["corpi"][i], macro)
         #Word2Vec
         word2vec_res = word2vec_classification(fp_data, fp_seeds)
-        micro = score_F1(word2vec_res["label"], word2vec_res["prediction"], "micro")
-        macro = score_F1(word2vec_res["label"], word2vec_res["prediction"], "macro")
+        micro = score_F1(word2vec_res["label"], word2vec_res["prediction"], params["outpath"], "micro")
+        macro = score_F1(word2vec_res["label"], word2vec_res["prediction"], params["outpath"], "macro")
         print("Word2Vec Micro-F1 score for", params["corpi"][i], micro)
         print("Word2Vec Macro-F1 score for", params["corpi"][i], macro)
 

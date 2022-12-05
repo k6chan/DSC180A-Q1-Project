@@ -21,7 +21,7 @@ Using seedwords.json instead of seedwords_6.json
 
 `seedwords.json` --> `20News_seedwords.json`
 
-# Targets
+## Targets
 
 * `test`: run models with test data
 * `data`: run models with raw data

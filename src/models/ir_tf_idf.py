@@ -24,7 +24,7 @@ def ir_tfidf(data_fp, seeds_fp):
             
     model = fe.text.TfidfVectorizer(input="content", stop_words = {'english'})
     vector = model.fit_transform(data["sentence"])
-    features = model.get_feature_names_out()
+    features = model.get_feature_names()
     
     def predict(ind):
         filtered = filter(lambda item: item[1] in genres, zip(vector[ind].toarray()[0].tolist(),features))

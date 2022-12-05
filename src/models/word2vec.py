@@ -38,7 +38,7 @@ def word2vec_classification(data_fp, seeds_fp):
     for row in data_ind.iterrows():
         data_tokens.append(tokenize(row[1]["sentence"]))
 
-    model = Word2Vec(data_tokens, vector_size=100, sg=1)
+    model = Word2Vec(data_tokens, vector_size=100, sg=1, min_count=1)
     
     def predict_w2v(sentence):
         similarities = []

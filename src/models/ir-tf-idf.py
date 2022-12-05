@@ -1,6 +1,5 @@
 import pandas as pd
 import sklearn.feature_extraction as fe
-from score_F1 import score_F1
 
 
 def ir_tfidf(data, seeds):

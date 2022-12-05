@@ -19,11 +19,7 @@ RUN apt-get -y install aria2 nmap traceroute
 # 3) install packages using notebook user
 USER jovyan
 
-# RUN pip install --no-cache-dir pickle
-# RUN pip install --no-cache-dir json
-# RUN pip install --no-cache-dir os
-# RUN pip install --no-cache-dir sys
-RUN pip install --no-cache-dir pandas sklearn
+RUN pip install --no-cache-dir pandas sklearn gensim numpy
 
 # Override command to disable running jupyter notebook at launch
 CMD ["/bin/bash"]

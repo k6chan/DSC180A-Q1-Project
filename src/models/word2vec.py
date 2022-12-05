@@ -23,7 +23,8 @@ def word2vec(data_fp, seeds_fp):
     :param: seeds: a directory to a dictionary of labels (keys) with a list of seed words (values)
     '''
     data = pd.read_csv(data_fp)
-    seeds = json.load(seeds_fp)
+    with open(seeds_fp) as f:
+        seeds = json.load(f)
     
     #reverse seeds dictionary
     genres = {}

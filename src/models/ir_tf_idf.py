@@ -27,9 +27,13 @@ def ir_tfidf(data_fp, seeds_fp):
     features = model.get_feature_names()
     
     def predict(ind):
+        sims = dict.fromkeys(seeds.keys(), 0)
         filtered = filter(lambda item: item[1] in genres, zip(vector[ind].toarray()[0].tolist(),features))
-        prediction = max(filtered, key=lambda item: item[0])
-        return genres[prediction[1]]
+        for tup in filtered:
+            if tup[1] in genres:
+                sims[genres[tup[1]]] = sims[genres[tup[1]]] + tup[0]
+        prediction = max(sims.items(), key=lambda item: item[1])
+        return prediction[0]
     
     df = data_ind.assign(prediction = data_ind["index"].apply(predict))
     return df
